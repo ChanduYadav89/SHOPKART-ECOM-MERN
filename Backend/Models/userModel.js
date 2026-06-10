@@ -20,6 +20,12 @@ const userSchema = new mongoose.Schema({
         enum: ["user", "admin"],
         default: "user"
     },
+
+    verified : {
+        type: Boolean,
+        default: false
+    },
+    
 } , {timestamps: true} );
 
 const User = mongoose.model("User", userSchema)
