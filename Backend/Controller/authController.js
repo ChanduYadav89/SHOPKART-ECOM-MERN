@@ -11,9 +11,8 @@ const generateToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "7d" })
 }
 
-// Regristering user
-
-async function registerUser(req, res) {
+// Registering user
+export async function registerUser(req, res) {
   try {
     const { name, email, password } = req.body;
 
@@ -73,6 +72,65 @@ async function registerUser(req, res) {
 
   } catch (error) {
     console.error("Error in registerUser:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
+  }
+}
+
+
+// Login user
+export async function loginUser(req, res) {
+  try {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({
+        success: false,
+        message: "All fields are required",
+      });
+    }
+    const loginUser = await User.findOne({ email });
+
+    if (!loginUser) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found with this email",
+      });
+    }
+    const isPasswordMatch = await bcrypt.compare(password, loginUser.password);
+
+    if (!isPasswordMatch) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid password",
+      });
+    }
+
+    res.status(200).json({
+      id : loginUser._id,
+      name : loginUser.name, 
+      email : loginUser.email,
+      role : loginUser.role,
+      token : generateToken(loginUser._id)
+    });
+  } catch (error) {
+    console.error("Error in loginUser:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
+  } 
+}
+
+
+// Get all users
+export async function getAllUsers(req, res) {
+  try {
+    const fetchUser = await User.find();
+    res.status(200).json(fetchUser);
+  } catch (error) {
+    console.error("Error in getAllUsers:", error);
     res.status(500).json({
       success: false,
       message: "Server Error",
