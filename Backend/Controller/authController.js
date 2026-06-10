@@ -1,6 +1,7 @@
 import User from "../Models/userModel.js";
 import jwt from "jsonwebtoken"
 import dotenv from "dotenv"
+import bcrypt from "bcryptjs"
 
 dotenv.config()
 
@@ -19,10 +20,11 @@ async function registerUser(req, res){
                 message : "User is already existed from this email"
             })
         }
-
-        
-
-        const createUser = await User.create({name , email, password})
+         // hased password before storing in database
+        const salt = await bcrypt.genSalt(10)
+        const hashedPassword = await bcrypt.hash(password, salt)
+        //new user are created in database
+        const createUser = await User.create({name , email, hashedPassword})
 
         const Token = jwt.sign({
            id : createUser._id,
