@@ -8,7 +8,7 @@ dotenv.config();
 
 
 const generateToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "7d" })
+    return jwt.sign({ id }, process.env.JWT_SECRETE, { expiresIn: "7d" })
 }
 
 // Registering user
@@ -47,7 +47,7 @@ export async function registerUser(req, res) {
       const otp = Math.floor(100000 + Math.random() * 900000).toString(); // Generate a random 6-digit OTP
 
       const message = `
-            welcome to Shopkart, ${name}! Thanks for registering with us. We are excited to have you as part of our community. To complete your registration, please use the following One-Time Password (OTP):
+            welcome to ShopKart, ${name}! Thanks for registering with us. We are excited to have you as part of our community. To complete your registration, please use the following One-Time Password (OTP):
 
             Your OTP for registration is: ${otp}`;
 
@@ -127,7 +127,7 @@ export async function loginUser(req, res) {
 // Get all users
 export async function getAllUsers(req, res) {
   try {
-    const fetchUser = await User.find();
+    const fetchUser = await User.find().select("-password");
     res.status(200).json(fetchUser);
   } catch (error) {
     console.error("Error in getAllUsers:", error);
