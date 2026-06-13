@@ -14,34 +14,35 @@ const users = [
     email: "admin@shopkart.com",
     password: "admin123",
     role: "admin",
-    verified: true
+    verified: true,
   },
   {
     name: "Chandan Kumar",
     email: "chandan@example.com",
     password: "user123",
     role: "user",
-    verified: true
+    verified: true,
   },
   {
     name: "Priya Sharma",
     email: "priya@example.com",
     password: "user123",
     role: "user",
-    verified: true
-  }
+    verified: true,
+  },
 ];
 
 const products = [
   {
     name: "Nike Running Shoes",
-    description: "Lightweight running shoes for daily training and gym workouts.",
+    description:
+      "Lightweight running shoes for daily training and gym workouts.",
     price: 2499,
     category: "Shoes",
     stock: 25,
-    imageUrl: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+    imageUrl: "https://picsum.photos/seed/nike-running-shoes/800/600",
     ratings: 4.5,
-    numReviews: 18
+    numReviews: 18,
   },
   {
     name: "Cotton T-Shirt",
@@ -49,69 +50,75 @@ const products = [
     price: 699,
     category: "Clothing",
     stock: 50,
-    imageUrl: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+    imageUrl: "https://picsum.photos/seed/cotton-t-shirt/800/600",
     ratings: 4.2,
-    numReviews: 12
+    numReviews: 12,
   },
   {
     name: "Smart Watch",
-    description: "Fitness smartwatch with heart rate monitor and activity tracking.",
+    description:
+      "Fitness smartwatch with heart rate monitor and activity tracking.",
     price: 3999,
     category: "Electronics",
     stock: 15,
-    imageUrl: "https://images.unsplash.com/photo-1523275335684-37898b6baf30",
+    imageUrl: "https://picsum.photos/seed/smart-watch/800/600",
     ratings: 4.7,
-    numReviews: 30
+    numReviews: 30,
   },
   {
     name: "Travel Backpack",
-    description: "Durable backpack with laptop compartment and water resistant fabric.",
+    description:
+      "Durable backpack with laptop compartment and water resistant fabric.",
     price: 1599,
     category: "Bags",
     stock: 20,
-    imageUrl: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62",
+    imageUrl: "https://picsum.photos/seed/travel-backpack/800/600",
     ratings: 4.4,
-    numReviews: 9
+    numReviews: 9,
   },
   {
     name: "Leather Wallet",
-    description: "Genuine leather wallet with multiple card slots and coin pocket.",
+    description:
+      "Genuine leather wallet with multiple card slots and coin pocket.",
     price: 799,
     category: "Accessories",
     stock: 40,
-    imageUrl: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
+    imageUrl: "https://picsum.photos/id/433/800/600",
     ratings: 4.3,
-    numReviews: 22
+    numReviews: 22,
   },
   {
     name: "Wireless Earbuds",
-    description: "Noise-isolating true wireless earbuds with long battery life.",
+    description:
+      "Noise-isolating true wireless earbuds with long battery life.",
     price: 2999,
     category: "Electronics",
     stock: 30,
-    imageUrl: "https://images.unsplash.com/photo-1518444020870-8f2b7f8f1b4b",
+    imageUrl: "https://picsum.photos/id/433/800/600",
     ratings: 4.6,
-    numReviews: 48
+    numReviews: 48,
   },
   {
     name: "Bluetooth Speaker",
-    description: "Portable Bluetooth speaker with deep bass and 12-hour playtime.",
+    description:
+      "Portable Bluetooth speaker with deep bass and 12-hour playtime.",
     price: 1999,
     category: "Electronics",
     stock: 18,
-    imageUrl: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
+    imageUrl: "https://picsum.photos/seed/bluetooth-speaker/800/600",
     ratings: 4.5,
-    numReviews: 31
+    numReviews: 31,
   },
   {
     name: "Aviator Sunglasses",
-    description: "Classic aviator sunglasses with UV protection and metal frame.",
+    description:
+      "Classic aviator sunglasses with UV protection and metal frame.",
     price: 1299,
     category: "Accessories",
     stock: 60,
-    imageUrl: "https://images.unsplash.com/photo-1510797215324-95aa89f5acb3",
+    imageUrl: "https://picsum.photos/seed/aviator-sunglasses/800/600",
     ratings: 4.1,
-    numReviews: 14
+    numReviews: 14,
   },
   {
     name: "Denim Jeans",
@@ -119,9 +126,9 @@ const products = [
     price: 1599,
     category: "Clothing",
     stock: 35,
-    imageUrl: "https://images.unsplash.com/photo-1520975698517-9b9a9e502d8d",
+    imageUrl: "https://picsum.photos/seed/denim-jeans/800/600",
     ratings: 4.4,
-    numReviews: 27
+    numReviews: 27,
   },
   {
     name: "Coffee Maker",
@@ -129,9 +136,9 @@ const products = [
     price: 3499,
     category: "Home Appliances",
     stock: 12,
-    imageUrl: "https://images.unsplash.com/photo-1517705008129-7dbb3f9c6aeb",
+    imageUrl: "https://picsum.photos/seed/coffee-maker/800/600",
     ratings: 4.2,
-    numReviews: 10
+    numReviews: 10,
   },
   {
     name: "Yoga Mat",
@@ -139,9 +146,9 @@ const products = [
     price: 499,
     category: "Fitness",
     stock: 80,
-    imageUrl: "https://images.unsplash.com/photo-1599058917212-6f69b8a9b0b7",
+    imageUrl: "https://picsum.photos/seed/yoga-mat/800/600",
     ratings: 4.6,
-    numReviews: 40
+    numReviews: 40,
   },
   {
     name: "LED Desk Lamp",
@@ -149,9 +156,9 @@ const products = [
     price: 899,
     category: "Home",
     stock: 45,
-    imageUrl: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4",
+    imageUrl: "https://picsum.photos/seed/led-desk-lamp/800/600",
     ratings: 4.4,
-    numReviews: 16
+    numReviews: 16,
   },
   {
     name: "Gaming Mouse",
@@ -159,20 +166,21 @@ const products = [
     price: 1499,
     category: "Electronics",
     stock: 22,
-    imageUrl: "https://images.unsplash.com/photo-1587202372775-28b5f861f0a6",
+    imageUrl: "https://picsum.photos/seed/gaming-mouse/800/600",
     ratings: 4.5,
-    numReviews: 29
+    numReviews: 29,
   },
   {
     name: "Women Handbag",
-    description: "Stylish women handbag with zip compartments and adjustable strap.",
+    description:
+      "Stylish women handbag with zip compartments and adjustable strap.",
     price: 2199,
     category: "Bags",
     stock: 28,
-    imageUrl: "https://images.unsplash.com/photo-1520975698517-0f7c2f2a4d2b",
+    imageUrl: "https://picsum.photos/seed/women-handbag/800/600",
     ratings: 4.3,
-    numReviews: 21
-  }
+    numReviews: 21,
+  },
 ];
 
 const importData = async () => {
@@ -186,8 +194,8 @@ const importData = async () => {
     const hashedUsers = await Promise.all(
       users.map(async (user) => ({
         ...user,
-        password: await bcrypt.hash(user.password, 10)
-      }))
+        password: await bcrypt.hash(user.password, 10),
+      })),
     );
 
     const createdUsers = await User.insertMany(hashedUsers);
@@ -201,13 +209,13 @@ const importData = async () => {
           {
             productId: createdProducts[0]._id,
             qty: 1,
-            price: createdProducts[0].price
+            price: createdProducts[0].price,
           },
           {
             productId: createdProducts[1]._id,
             qty: 2,
-            price: createdProducts[1].price
-          }
+            price: createdProducts[1].price,
+          },
         ],
         totalAmount: createdProducts[0].price + createdProducts[1].price * 2,
         address: {
@@ -215,10 +223,10 @@ const importData = async () => {
           street: "123 Main Road",
           city: "Patna",
           postalCode: "800001",
-          country: "India"
+          country: "India",
         },
         paymentId: "pay_dummy_001",
-        status: "Delivered"
+        status: "Delivered",
       },
       {
         userId: sampleUser._id,
@@ -226,8 +234,8 @@ const importData = async () => {
           {
             productId: createdProducts[2]._id,
             qty: 1,
-            price: createdProducts[2].price
-          }
+            price: createdProducts[2].price,
+          },
         ],
         totalAmount: createdProducts[2].price,
         address: {
@@ -235,11 +243,11 @@ const importData = async () => {
           street: "45 Market Street",
           city: "Delhi",
           postalCode: "110001",
-          country: "India"
+          country: "India",
         },
         paymentId: "pay_dummy_002",
-        status: "Pending"
-      }
+        status: "Pending",
+      },
     ];
 
     await Order.insertMany(sampleOrders);

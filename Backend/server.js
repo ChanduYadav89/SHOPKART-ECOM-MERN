@@ -6,6 +6,7 @@ import productRoutes from "./Routes/productRoutes.js";
 import orderRoutes from "./Routes/orderRoutes.js";
 import paymentRoutes from "./Routes/paymentRoutes.js";
 import analyticsRoutes from "./Routes/analyticsRoutes.js";
+import cors from "cors";
 
 dotenv.config()
 connectDB()
@@ -13,7 +14,13 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended : false}))
 const Port = process.env.PORT
-// app.use(cors());
+
+app.use(cors({
+    origin: 'http://localhost:5173', // Update this to match your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}))
+
 
 
 app.use('/api/auth', authRoutes)
